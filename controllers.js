@@ -1,4 +1,4 @@
-import database from "./server.js";
+import database from "./app.js";
 
 export const getEvents = (request, response) => {
     const query = request.query.type ? "SELECT * FROM events WHERE type=?" : "SELECT * FROM events";
