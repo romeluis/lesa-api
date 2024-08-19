@@ -1,7 +1,7 @@
 import express from "express";
 import eventsRoutes from "./routes/events.js";
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 //Set up API and routes
 const app = express();
@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 });
 
 //Listen for requests
-app.listen(PORT, (error) =>{
+app.listen(PORT, (error) => {
     if(!error)
         console.log("Server is Successfully Running, and App is listening on port "+ PORT)
     else {
