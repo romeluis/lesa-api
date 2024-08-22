@@ -7,6 +7,7 @@ export const database = mysql.createConnection({
     host: "server329.web-hosting.com",
     port: "3306",
     database: "lesaueqw_lesadb",
+    charset : 'utf8mb4',
     user: SQL_USER,
     password: SQL_PASS
 });
