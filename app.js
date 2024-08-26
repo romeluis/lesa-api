@@ -2,6 +2,8 @@ import express from "express";
 import eventsRoutes from "./routes/events.js";
 import assetsRoutes from "./routes/assets.js";
 import jobsRoutes from "./routes/jobs.js";
+import executivesRoutes from "./routes/executives.js";
+import resourcesRoutes from "./routes/resources.js";
 
 const PORT = process.env.PORT || 5001;
 
@@ -11,6 +13,8 @@ app.use(express.json());
 app.use("/events", eventsRoutes);
 app.use("/assets", assetsRoutes);
 app.use("/jobs", jobsRoutes);
+app.use("/executives", executivesRoutes);
+app.use("/resources", resourcesRoutes);
 
 //Message for unspecified access
 app.get("/", (req, res) => {
