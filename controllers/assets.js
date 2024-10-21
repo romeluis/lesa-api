@@ -5,7 +5,7 @@ export const getHeroAnimation = (request, response) => {
 
 export const getMeetTheTeam = (request, response) => {
     response.set('Access-Control-Allow-Origin', '*');
-    response.status(200).sendFile("/home/lesaueqw/api/assets/meet-the-team.svg");
+    response.status(200).sendFile("/home/lesaueqw/api/assets/meet-the-team.png");
 }
 
 export const getAboutLESA = (request, response) => {
