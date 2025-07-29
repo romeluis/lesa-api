@@ -4,6 +4,7 @@ import assetsRoutes from "./routes/assets.js";
 import jobsRoutes from "./routes/jobs.js";
 import executivesRoutes from "./routes/executives.js";
 import resourcesRoutes from "./routes/resources.js";
+import submitRoutes from "./routes/submit.js";
 
 const PORT = process.env.PORT || 5001;
 
@@ -15,6 +16,7 @@ app.use("/assets", assetsRoutes);
 app.use("/jobs", jobsRoutes);
 app.use("/executives", executivesRoutes);
 app.use("/resources", resourcesRoutes);
+app.use("/submit", submitRoutes);
 
 //Message for unspecified access
 app.get("/", (req, res) => {
