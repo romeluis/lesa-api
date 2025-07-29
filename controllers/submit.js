@@ -19,7 +19,7 @@ export const submitJoin = (req, res) => {
     } = req.body;
 
     const q =
-        "INSERT INTO members (`given_name`, `surname_name`, `preferred_name`, `uoft_email`, `student_number`, `student_status`, `faculty`, `college`, `program`, `year_of_study`, `country`) VALUES (?)";
+        "INSERT INTO members (`given_name`, `surname_name`, `preferred_name`, `uoft_email`, `student_number`, `student_status`, `faculty`, `college`, `program`, `year_of_study`, `country`, `registration_date`) VALUES (?)";
 
     const values = [
         given_name,
@@ -33,6 +33,7 @@ export const submitJoin = (req, res) => {
         program,
         year_of_study,
         country,
+        new Date(),
     ];
 
     database.query(q, [values], (err, data) => {
