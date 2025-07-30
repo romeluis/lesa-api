@@ -1,7 +1,6 @@
 import {database} from "../database.js";
 
 export const getResources = (request, response) => {
-    response.set('Access-Control-Allow-Origin', '*');
 
     const query = "SELECT * FROM resources";
 

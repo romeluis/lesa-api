@@ -1,7 +1,6 @@
 import {database} from "../database.js";
 
 export const getJobs = (request, response) => {
-    response.set('Access-Control-Allow-Origin', '*');
 
     const query = "SELECT * FROM executive_positions";
 
@@ -12,7 +11,6 @@ export const getJobs = (request, response) => {
 }
 
 export const getJob = (request, response) => {
-    response.set('Access-Control-Allow-Origin', '*');
 
     const query = "SELECT * FROM executive_positions WHERE id=?";
 

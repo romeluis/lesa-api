@@ -1,7 +1,6 @@
 import {database} from "../database.js";
 
 export const getEvents = (request, response) => {
-    response.set('Access-Control-Allow-Origin', '*');
 
     const query = request.query.type ? "SELECT * FROM events WHERE type=?" : (request.query.month ? "SELECT * FROM events WHERE month=?" : "SELECT * FROM events");
     if (request.query.type) {
@@ -23,7 +22,6 @@ export const getEvents = (request, response) => {
 }
 
 export const getEvent = (request, response) => {
-    response.set('Access-Control-Allow-Origin', '*');
 
     const query = "SELECT * FROM events WHERE id=?";
 
