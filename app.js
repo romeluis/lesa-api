@@ -14,7 +14,7 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-    origin: "https://lesauoft.com", // Allow all origins in development. For production, specify your frontend domain
+    origin: true, // Allow all origins in development. For production, specify your frontend domain
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
