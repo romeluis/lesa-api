@@ -45,7 +45,7 @@ export const submitJoin = (req, res) => {
         if (data.length) {
             // User exists, update
             const q_update =
-                "UPDATE members SET `given_name` = ?, `surname_name` = ?, `preferred_name` = ?, `uoft_email` = ?, `student_status` = ?, `faculty` = ?, `college` = ?, `program` = ?, `year_of_study` = ?, `country` = ? WHERE student_number = ?";
+                "UPDATE members SET `given_name` = ?, `surname_name` = ?, `preferred_name` = ?, `uoft_email` = ?, `student_status` = ?, `faculty` = ?, `college` = ?, `program` = ?, `year_of_study` = ?, `country` = ?, `last_update` = ? WHERE student_number = ?";
             const values_update = [
                 given_name,
                 surname_name,
@@ -57,6 +57,7 @@ export const submitJoin = (req, res) => {
                 program,
                 year_of_study,
                 country,
+                new Date(),
                 student_number,
             ];
             database.query(q_update, values_update, (err, data) => {
