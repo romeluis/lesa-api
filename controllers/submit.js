@@ -13,9 +13,8 @@ export const submitEvent = (req, res) => {
         }
 
         // Student exists, register for event
-        const student_member_id = data[0].id;
         const q_insert = "INSERT INTO event_registration (`event_id`, `student_id`) VALUES (?, ?)";
-        database.query(q_insert, [event_id, student_member_id], (err, data) => {
+        database.query(q_insert, [event_id, student_id], (err, data) => {
             if (err) return res.status(500).json(err);
             return res.json({ message: "Student registered for event." });
         });
