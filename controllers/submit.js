@@ -1,6 +1,7 @@
 import { database } from "../database.js";
 
 export const submitEvent = (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     const event_id = req.params.id;
     const { student_id } = req.body;
 
@@ -23,6 +24,7 @@ export const submitEvent = (req, res) => {
 }
 
 export const submitJoin = (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     const {
         given_name,
         surname_name,
