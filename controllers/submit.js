@@ -17,7 +17,7 @@ export const submitEvent = (req, res) => {
         database.query(q_check_registration, [event_id, student_id], (err, registrationData) => {
             if (err) return res.status(500).json(err);
             if (registrationData.length > 0) {
-                return res.status(409).json({ message: "Student is already registered for this event." });
+                return res.json({ message: "Student registered for event." });
             }
 
             // Student exists and is not already registered, register for event
