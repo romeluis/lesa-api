@@ -12,11 +12,20 @@ export const submitEvent = (req, res) => {
             return res.status(404).json({ message: "Student not found." });
         }
 
-        // Student exists, register for event
-        const q_insert = "INSERT INTO event_registration (`event_id`, `student_id`) VALUES (?, ?)";
-        database.query(q_insert, [event_id, student_id], (err, data) => {
+        // Check if student is already registered for this event
+        const q_check_registration = "SELECT * FROM event_registration WHERE event_id = ? AND student_id = ?";
+        database.query(q_check_registration, [event_id, student_id], (err, registrationData) => {
             if (err) return res.status(500).json(err);
-            return res.json({ message: "Student registered for event." });
+            if (registrationData.length > 0) {
+                return res.status(409).json({ message: "Student is already registered for this event." });
+            }
+
+            // Student exists and is not already registered, register for event
+            const q_insert = "INSERT INTO event_registration (`event_id`, `student_id`) VALUES (?, ?)";
+            database.query(q_insert, [event_id, student_id], (err, data) => {
+                if (err) return res.status(500).json(err);
+                return res.json({ message: "Student registered for event." });
+            });
         });
     });
 }
