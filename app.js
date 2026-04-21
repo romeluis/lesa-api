@@ -13,8 +13,20 @@ const PORT = process.env.PORT || 5001;
 const app = express();
 
 // CORS configuration
+const allowedOrigins = [
+    'https://lesauoft.com',
+    'https://www.lesauoft.com',
+];
+
 app.use(cors({
-    origin: 'https://lesauoft.com', // Allow all origins in development. For production, specify your frontend domain
+    origin: (origin, callback) => {
+        // Allow requests with no origin (e.g. mobile apps, curl)
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error(`CORS policy does not allow origin: ${origin}`));
+        }
+    },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
